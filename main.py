@@ -5,18 +5,18 @@ from urllib import request
 from bs4 import BeautifulSoup
 
 
-def get_soup_by_url(target_url, page_encoding="utf-8"):
+def get_soup_by_url(target_url: str, page_encoding="utf-8"):
     target_request = request.urlopen(target_url)
     raw_page = target_request.read().decode(page_encoding)
     return BeautifulSoup(raw_page, features="html.parser")
 
 
-def get_soup_by_page(raw_html_page, page_encoding="utf-8"):
+def get_soup_by_page(raw_html_page: str, page_encoding="utf-8"):
     raw_page = open(raw_html_page, encoding=page_encoding, mode="r").read().strip()
     return BeautifulSoup(raw_page, features="html.parser")
 
-def get_div_by_class(div_class):
-    return soup.find_all("div", attrs={"class": div_class})
+def get_div_by_class(source: BeautifulSoup, div_class: str):
+    return source.find_all("div", attrs={"class": div_class})
 
 
 
@@ -34,10 +34,11 @@ if __name__ == '__main__':
     soup = get_soup_by_page("trump_verschwörung.html")
     #print(soup.prettify())
 
+    #print( get_soup_by_page("trump_verschwörung.html"))
 
     #test= soup.find_all("div",attrs={"class":"g"})
     #test= soup.find_all("span",attrs={"class":"aCOpRe"})
-    for x in get_div_by_class("g"):
+    for x in get_div_by_class(soup, "g"):
         print("Start")
         print(x)
         print("End")
