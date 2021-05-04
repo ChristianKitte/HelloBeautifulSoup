@@ -2,12 +2,14 @@ from __future__ import division
 
 from MyBeautifulSoup import MyBeautifulSoup
 
-# https://www.codegrepper.com/code-examples/whatever/get+button+in+div+without+if+or+class+beautifulsoup
-# https://www.python-lernen.de/bibliothek-urllib.htm
-# https://www.crummy.com/software/BeautifulSoup/bs4/doc/index.html?highlight=findall#tag
-# https://dev.to/joks84/playing-with-beautifulsoup-spiders-might-not-be-so-scary-after-all-4o81
-
 if __name__ == '__main__':
+    """
+    Die Einstiegsroutine zum Testprogramm, sofern sie direkt aufgerufen wird. Sie dient nur dem Test
+    der Hilfsklassen MyBeautifulSoup und MyTag  
+    """
+
+    # Beispiel für die Verwendung der Klasse auf Basis einer übergebenen URL. Die hier verwendete
+    # News Seite verwendet die Klasse QmrVtf.
     yy: MyBeautifulSoup = MyBeautifulSoup.instance().get_soup_by_url("https://news.google.com").get_div_by_class(
         "QmrVtf")
     for y in yy:
@@ -15,6 +17,8 @@ if __name__ == '__main__':
         print(y.get_text())
         print("End")
 
+    # Beispiel für die Verwendung anhand einer übergebenen Datei, hier einer Googlesuche.
+    # Google verwendet die Klasse g für ihre Ergebnisse.
     xx = MyBeautifulSoup.instance().get_soup_by_page("trump_verschwörung.html").get_div_by_class("g")
     for x in xx:
         print("Start")
