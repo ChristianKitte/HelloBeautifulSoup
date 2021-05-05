@@ -6,6 +6,7 @@ from urllib import request
 import bs4.element
 from bs4 import BeautifulSoup
 
+from MyList import MyList
 from MyTag import MyTag
 
 
@@ -126,7 +127,7 @@ class MyBeautifulSoup(BeautifulSoup):
 
         return self
 
-    def get_div_by_class(self, div_class: str) -> list[MyTag]:
+    def get_div_by_class(self, div_class: str) -> MyList:
         """
         Extrahiert aus der zugrundeliegenden Quelle alle div Elemente anhand der übergebenen
         Klassenbezeichnung und liefert für jedes Ergebnis ein MyTag Element zurück.
@@ -135,23 +136,22 @@ class MyBeautifulSoup(BeautifulSoup):
             Ein String mit dem Namen der css Klasse, welche extrahiert werden soll
 
         :return:
-            Eine Liste mit MyTag Instanzen
+            Eine MyList mit MyTag Instanzen
         """
         if self.__currentBeautifulSoup is not None:
-            returnList: list[MyTag] = []
-
+            rl: MyList = MyList()
             try:
                 for itemX in self.__currentBeautifulSoup.find_all("div", attrs={"class": div_class}):
-                    # b = MyTag(itemX)
-                    returnList.append(MyTag(itemX))
+                    x = MyTag(itemX)
+                    rl.append(x)
             except:
-                return [].append(sys.exc_info()[0])
+                return rl.append(sys.exc_info()[0])
 
-            return returnList
+            return rl
         else:
-            return []
+            return MyList()
 
-    def get_div_by_id(self, div_id: str) -> list[MyTag]:
+    def get_div_by_id(self, div_id: str) -> MyList:
         """
         Extrahiert aus der zugrundeliegenden Quelle ein div Elemente anhand der übergebenen
         ID und liefert hierfür ein MyTag Element zurück.
@@ -160,17 +160,17 @@ class MyBeautifulSoup(BeautifulSoup):
             Ein String mit der ID eines div Elementes, welches extrahiert werden soll
 
         :return:
-            Eine Liste mit der MyTag Instanz
+            Eine MyList mit der MyTag Instanz
         """
         if self.__currentBeautifulSoup is not None:
-            returnList: list[MyTag] = []
-
+            rl: MyList = MyList()
             try:
                 for itemX in self.__currentBeautifulSoup.find_all("div", attrs={"id": div_id}):
-                    returnList.append(MyTag(itemX))
+                    x = MyTag(itemX)
+                    rl.append(x)
             except:
-                return [].append(sys.exc_info()[0])
+                return rl.append(sys.exc_info()[0])
 
-            return returnList
+            return rl
         else:
-            return []
+            return MyList()
