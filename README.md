@@ -16,6 +16,7 @@ In dem zugehörigen Pythonprojekt habe ich in der **Main** Methode meine kleine 
 zeigt, wie sie verwendet werden kann. Ein Beispiel, mit dem eine Seite geöffnet und der Inhalt aller div-Tags der Klasse “QmrVtf” 
 ausgegeben wird, ist hier beispielsweise:
 
+```python
  xx = MyBeautifulSoup.instance().get_soup_by_page("trump_verschwörung.html").get_div_by_class("g")
     for x in xx.items():
         print("Start - KLASSEN basiert")
@@ -25,6 +26,7 @@ ausgegeben wird, ist hier beispielsweise:
     # Umwandeln in ein DataFrame und Ausgabe als .csv Datei
     dfx = xx.getDataFrame("Inhalt XX")
     dfx.to_csv("xx.csv")
+```
 
 Dies Beispiel liest eine gespeicherte Seite aus und extrahiert alle DIV-Blöcke mit dem Klassenattribut “g” und gibt diese in die 
 Konsole aus. Anschließend wird ein Panda DataFrame erzeugt und dessen Inhalt als CSV Datei exportiert (siehe hierzu die CSV-Dateien xx, yy 
