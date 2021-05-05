@@ -5,11 +5,11 @@
 Bei diesem Code handelt es sich um eine Bibliothek, um den Einsatz der Bibliothek “**BeautifulSoup**” alias “[**bs4**](https://pypi.org/project/beautifulsoup4/)" 
 zu vereinfachen und den Einstieg leichter zu gestalten.
 
-Bei der sporadischen Beschäftigung mit bs4 fiel mir immer wieder auf, dass deren Syntax gerade zu Anfang, wenn die Quelle selbst 
+Bei der sporadischen Beschäftigung mit **bs4** fiel mir immer wieder auf, dass deren Syntax gerade zu Anfang, wenn die Quelle selbst 
 geladen werden muss, etwas umständlich ist. Dies verbessert auch nicht wirklich den Einstieg.
 
-Daher habe ich gerade für den Einstieg und hier speziell für Webseiten, lokale Seite und Texte den Anfang einer kleinen **DSL** als 
-**Floating API** geschrieben. Bei den Umfang von bs4 und den Möglichkeiten deckt sie natürlich bei weitem nicht das gesamte Spektrum, 
+Daher habe ich gerade für den Einstieg und hier speziell für ***Webseiten, lokale Seite und Texte*** den Anfang einer kleinen **DSL** als 
+**Floating API** geschrieben. Bei den Umfang von **bs4** und den Möglichkeiten deckt sie natürlich bei weitem nicht das gesamte Spektrum, 
 sondern halt nur das einfache Laden und wenige Funktionen ab. Es handelt sich hier also um ein absolutes **Grundgerüst**.
 
 In dem zugehörigen Pythonprojekt habe ich in der **Main** Methode meine kleine Bibliothek getestet und etwas Mustercode geschrieben, der 
